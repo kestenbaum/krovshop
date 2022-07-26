@@ -1,11 +1,12 @@
 import React from 'react';
 import '../src/scss/index.css'
-import Header from "./components/header/Header";
+import Layout from "./components/Layout";
+
 
 const App = () => {
     return (
         <div className='app'>
-            <Header/>
+            <Layout/>
         </div>
     );
 };
