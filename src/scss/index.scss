@@ -1,5 +1,95 @@
+@import "variables";
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.container{
+  width: 100%;
+  max-width: 1024px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+/*---- Header ----*/
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #131313;
+  z-index: 999;
+  padding: 10px;
+}
+.header-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 46px;
+}
+.header-row{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.header-col6{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex: 0 0 50%;
+}
+
+/*---- HeaderProfile ----*/
+.profile{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+/*---- HeaderFavorites ----*/
+.favorites{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/*---- HeaderBasket ----*/
+.basket{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+/*---- HeaderSearch ----*/
+.search{
+  display: flex;
+  align-items: center;
+  padding: 5px 15px;
+  background-color: #fff;
+  border-radius: 15px;
+  &:focus{
+    outline: none;
+  }
+  &:focus::placeholder{
+    color: transparent;
+  }
+}
+
+/*---- mediaHeader ----*/
+@media all and (max-width: 575px){
+  .info-basket{
+    display: none;
+  }
+  .info-profile{
+    display: none;
+  }
+  .col-active{
+    flex-direction: column;
+  }
 }
