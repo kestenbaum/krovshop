@@ -124,11 +124,9 @@
   .info-basket {
     display: none;
   }
-
   .info-profile {
     display: none;
   }
-
   .col-active {
     flex-direction: column;
   }
@@ -170,7 +168,6 @@
   .m-tittle {
     font-size: 40px;
   }
-
   .description {
     font-size: 15px;
   }
@@ -200,6 +197,12 @@
 
 .f-right {
   flex: 0 0 25%;
+}
+
+/*---- FormContact ----*/
+.form-contact {
+  padding: 42px;
+  background-image: url("../assets/img/form-bg.png");
 }
 
 /*# sourceMappingURL=index.css.map */
