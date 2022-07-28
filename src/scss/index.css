@@ -27,6 +27,14 @@
   color: #fff;
 }
 
+.f-text {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 104.51%;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -166,6 +174,32 @@
   .description {
     font-size: 15px;
   }
+}
+/*---- Footer ----*/
+.footer {
+  background-color: #fff;
+}
+
+.footer-wrapper {
+  display: block;
+  padding: 25px;
+}
+
+.info-company {
+  margin-bottom: 20px;
+}
+
+.f-block {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.f-left {
+  flex: 0 0 75%;
+}
+
+.f-right {
+  flex: 0 0 25%;
 }
 
 /*# sourceMappingURL=index.css.map */

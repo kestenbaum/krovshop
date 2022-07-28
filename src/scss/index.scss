@@ -135,3 +135,24 @@
   }
 }
 
+/*---- Footer ----*/
+.footer {
+  background-color: #fff;
+}
+.footer-wrapper{
+  display: block;
+  padding: 25px;
+}
+.info-company{
+  margin-bottom: 20px;
+}
+.f-block{
+  display: flex;
+  flex-wrap: wrap;
+}
+.f-left{
+  flex: 0 0 75%;
+}
+.f-right{
+  flex: 0 0 25%;
+}
