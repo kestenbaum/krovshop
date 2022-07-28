@@ -93,3 +93,45 @@
     flex-direction: column;
   }
 }
+
+/*---- FirstScreen ----*/
+.first-screen{
+  background-image: url("../assets/img/m-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.first-screen-wrapper{
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 20px;
+}
+.link{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+  border-radius: 15px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 10px 15px;
+
+  &:hover{
+    transform: scale(1.1);
+    transition-duration: .3s;
+  }
+}
+
+/*---- mediaFirstScreen ----*/
+@media all and (max-width: 575px){
+  .m-tittle{
+    font-size: 40px;
+  }
+  .description{
+    font-size: 15px;
+  }
+}
+
