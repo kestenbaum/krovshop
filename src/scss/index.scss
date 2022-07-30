@@ -229,3 +229,30 @@
 }
 
 /*---- Category ----*/
+.category{
+  padding: 20px;
+}
+.category-information{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.category-title{
+  font-family: 'SF UI Display', sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 48px;
+  line-height: 104.51%;
+}
+.category-amount{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 17px;
+  color: #fff;
+  background: #644E91;
+  border-radius: 5px;
+}
+.category-items{
+  padding: 40px 0;
+}
