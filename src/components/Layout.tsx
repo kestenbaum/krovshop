@@ -3,7 +3,7 @@ import Header from "./header/Header";
 import FirstScreen from "./FirstScreen";
 import Footer from "./Footer";
 import FormContact from "./FormContact";
-import Category from "./category/Category";
+import Categories from "./category/Categories";
 
 
 const Layout:FC = () => {
@@ -11,9 +11,7 @@ const Layout:FC = () => {
         <div>
             <Header/>
             <FirstScreen/>
-            <Category/>
-            <Category/>
-            <Category/>
+            <Categories/>
             <FormContact/>
             <Footer/>
         </div>
