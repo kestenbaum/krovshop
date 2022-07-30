@@ -259,4 +259,20 @@
   cursor: pointer;
 }
 
+/*---- MediaFormContact ----*/
+@media all and (max-width: 500px) {
+  .form-block {
+    display: block;
+  }
+  .tittle-form {
+    color: #fff;
+  }
+  .f-button {
+    font-size: 14px;
+  }
+  .f-input {
+    font-size: 14px;
+  }
+}
+
 /*# sourceMappingURL=index.css.map */
