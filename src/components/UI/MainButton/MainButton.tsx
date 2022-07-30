@@ -1,14 +1,18 @@
 import React, {FC} from 'react';
 import style from '../MainButton/MainButton.module.css'
+import {NavLink} from "react-router-dom";
 
-interface IMainButton extends React.HTMLProps<HTMLButtonElement>{}
+interface IMainButton extends React.HTMLProps<HTMLLinkElement>{}
 
 const MainButton:FC<IMainButton> = ({children}) => {
 
     return (
-        <button className={style.btn}>
+        <NavLink
+            to='/page'
+            className={style.btn}
+        >
             {children}
-        </button>
+        </NavLink>
     );
 };
 

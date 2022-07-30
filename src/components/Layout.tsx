@@ -1,18 +1,18 @@
 import React, {FC} from 'react';
 import Header from "./header/Header";
-import FirstScreen from "./FirstScreen";
 import Footer from "./Footer";
-import FormContact from "./FormContact";
-import Categories from "./category/Categories";
-
+import {Routes, Route} from "react-router-dom";
+import CategoryPage from "./pages/CategoryPage";
+import FirstPage from "./pages/FirstPage";
 
 const Layout:FC = () => {
     return (
         <div>
             <Header/>
-            <FirstScreen/>
-            <Categories/>
-            <FormContact/>
+            <Routes>
+                <Route path='/' element={<FirstPage/>}/>
+                <Route path='/page' element={<CategoryPage/>}/>
+            </Routes>
             <Footer/>
         </div>
     );
