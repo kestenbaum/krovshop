@@ -12,6 +12,8 @@ const Layout:FC = () => {
             <Header/>
             <FirstScreen/>
             <Category/>
+            <Category/>
+            <Category/>
             <FormContact/>
             <Footer/>
         </div>

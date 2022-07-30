@@ -15,6 +15,9 @@ const Category:FC = () => {
                     {/*---- Items block----*/}
                     <div className="category-items">
                         <CategoryItems/>
+                        <CategoryItems/>
+                        <CategoryItems/>
+                        <CategoryItems/>
                     </div>
                 </div>
             </div>

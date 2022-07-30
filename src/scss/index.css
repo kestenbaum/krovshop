@@ -307,4 +307,42 @@
   padding: 40px 0;
 }
 
+/*---- CategoryItems ----*/
+.category-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.category-item {
+  display: flex;
+  max-width: 475px;
+  gap: 35px;
+}
+
+.item-information {
+  display: flex;
+  flex-direction: column;
+  border-left: 2px solid #000;
+  padding-left: 25px;
+  gap: 20px;
+}
+
+.item-title {
+  font-family: "SF UI Display", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 104.51%;
+}
+
+.item-description {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 104.51%;
+}
+
 /*# sourceMappingURL=index.css.map */
