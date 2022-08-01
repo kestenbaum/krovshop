@@ -16,7 +16,7 @@ const Counter:FC<ICounter> = ({count, onChangeCount}) => {
 
     const decrement = (event : React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault()
-        count >= 0 ? onChangeCount(0) : onChangeCount(count - 1)
+        count >= 1 ? onChangeCount(1) : onChangeCount(count - 1)
     }
 
     return (
