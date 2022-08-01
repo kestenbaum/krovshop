@@ -467,6 +467,7 @@
 }
 
 .item-buy {
+  display: flex;
   padding-bottom: 20px;
 }
 

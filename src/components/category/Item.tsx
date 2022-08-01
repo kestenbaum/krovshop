@@ -1,11 +1,15 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import material from '../../assets/img/materials/m-1.png'
 import IVisible from '../../assets/img/IVisible.png'
 import IFavorites from '../../assets/img/IFavorites.png'
 import {NavLink} from "react-router-dom";
 import MainButton from "../UI/MainButton/MainButton";
+import Counter from "../UI/Counter/Counter";
 
 const Item:FC = () => {
+
+    const [state, setState] = useState(1)
+
     return (
         <div className='item'>
 
@@ -39,6 +43,7 @@ const Item:FC = () => {
 
             {/*---- item counter ----*/}
             <div className="item-buy">
+                <Counter count={state} onChangeCount={setState}/>
                 <MainButton>Купить</MainButton>
             </div>
         </div>
