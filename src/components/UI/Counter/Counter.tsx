@@ -16,23 +16,23 @@ const Counter:FC<ICounter> = ({count, onChangeCount}) => {
 
     const decrement = (event : React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault()
-        count >= 1 ? onChangeCount(1) : onChangeCount(count - 1)
+        count === 1 ? onChangeCount(1) : onChangeCount(count - 1)
     }
 
     return (
         <div className={style.counter}>
             <button
-                onClick={increment}
-                className={style.btn}
-            >
-                +
-            </button>
-            <span className="count">{count}</span>
-            <button
                 onClick={decrement}
                 className={style.btn}
             >
                 -
+            </button>
+            <span className="count">{count}</span>
+            <button
+                onClick={increment}
+                className={style.btn}
+            >
+                +
             </button>
         </div>
     );

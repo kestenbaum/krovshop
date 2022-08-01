@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useMemo, useState} from 'react';
 import material from '../../assets/img/materials/m-1.png'
 import IVisible from '../../assets/img/IVisible.png'
 import IFavorites from '../../assets/img/IFavorites.png'
@@ -9,6 +9,11 @@ import Counter from "../UI/Counter/Counter";
 const Item:FC = () => {
 
     const [state, setState] = useState(1)
+    const [price, setPrice] = useState<number>(572)
+
+    const finalPriceItem = useMemo(() => {
+        return price * state
+    }, [state])
 
     return (
         <div className='item'>
@@ -30,7 +35,7 @@ const Item:FC = () => {
 
             {/*---- block price ----*/}
             <div className="item-option">
-                <span className="item-price">572руб / м2</span>
+                <span className="item-price">{finalPriceItem}руб / м2</span>
                 <div className="block-option">
                     <NavLink to='/'>
                         <img src={IVisible} alt="visible"/>
