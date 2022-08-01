@@ -1,4 +1,5 @@
 import React, {FC} from 'react';
+import {NavLink} from "react-router-dom";
 
 
 const FirstScreen:FC = () => {
@@ -12,9 +13,9 @@ const FirstScreen:FC = () => {
                     <span className='description'>
                         Более 10 лет компания KROV.SHOP успешно работает на российском рынке
                     </span>
-                    <a href='#' className='link'>
+                    <NavLink to='/about' className='link'>
                         Подробнее
-                    </a>
+                    </NavLink>
                 </div>
             </div>
         </div>

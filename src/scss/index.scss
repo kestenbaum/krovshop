@@ -404,3 +404,32 @@
   display: flex;
   padding-bottom: 20px;
 }
+
+/*---- about page----*/
+.about-page{
+  padding: 100px 0 0;
+}
+.about-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 25px;
+}
+.title-about{
+  font-family: 'SF UI Display', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 104.51%;
+}
+.about-description{
+  display: flex;
+  gap: 20px;
+}
+.about-img{
+  width: 250px;
+  height: 250px;
+}
+.about-btn{
+  text-decoration: none;
+}
