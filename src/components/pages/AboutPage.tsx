@@ -32,7 +32,7 @@ const AboutPage:FC = () => {
                         </span>
                     </div>
                     <NavLink to='/' className='about-btn'>
-                        <MainButton page={'/'}>Вернуться назад</MainButton>
+                        <MainButton>Вернуться назад</MainButton>
                     </NavLink>
                 </div>
             </div>

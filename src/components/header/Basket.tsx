@@ -1,9 +1,18 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import IconBasket from '../../assets/img/basket.svg'
+import Modal from "../UI/Modal/Modal";
+import Item from "../category/Item";
+
 
 const Basket:FC = () => {
+
+    const [modal, setModal] = useState<boolean>(false)
+    const handlerModal = () => {
+        setModal(!modal)
+    }
+
     return (
-        <div className='basket'>
+        <div className='basket' onClick={handlerModal}>
             <div className='icon-basket'>
                 <img src={IconBasket} alt='Иконка корзины'/>
             </div>
@@ -11,6 +20,9 @@ const Basket:FC = () => {
                 <span className='m-text'>Корзина </span>
                 <span className='m-text'>/ 0 руб</span>
             </div>
+            <Modal visible={modal} setVisible={setModal}>
+                46565
+            </Modal>
         </div>
     );
 };

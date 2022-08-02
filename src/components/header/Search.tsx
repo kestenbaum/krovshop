@@ -1,9 +1,6 @@
 import React, {FC} from 'react';
 
-interface ISearch
-    extends React.HTMLProps<HTMLInputElement> {}
-
-const Search:FC<ISearch> = (props) => {
+const Search:FC = () => {
 
     return (
        <input

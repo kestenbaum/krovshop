@@ -49,7 +49,7 @@ const Item:FC = () => {
             {/*---- item counter ----*/}
             <div className="item-buy">
                 <Counter count={state} onChangeCount={setState}/>
-                <MainButton page={'/page'}>Купить</MainButton>
+                <MainButton>Купить</MainButton>
             </div>
         </div>
     );

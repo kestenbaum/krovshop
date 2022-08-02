@@ -6,6 +6,7 @@ import Basket from "./Basket";
 import Search from "./Search";
 
 const Header:FC = () => {
+
     return (
         <header className='header'>
             <div className='container'>
