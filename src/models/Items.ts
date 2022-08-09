@@ -7,3 +7,11 @@ export interface IMetalTile {
     img: any
     price: number
 }
+
+{/** --Basket-- **/}
+export interface IBasket {
+    id: number
+    img: any
+    totalPrice: number
+    count: number
+}

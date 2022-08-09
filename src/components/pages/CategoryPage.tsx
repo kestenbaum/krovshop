@@ -6,8 +6,6 @@ import {useAppSelector} from "../../hooks/redux";
 const CategoryPage:FC = () => {
 
     const data = useAppSelector(state => state.MetalTileSliceReducer.items)
-    console.log(data)
-
     const [state, setState] = useState([
         {id: 1, title: 'Металлочерепица', count: data.length},
         {id: 2, title: 'Композитная черепица', count: 222},

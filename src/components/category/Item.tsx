@@ -12,6 +12,11 @@ const Item:FC<IMetalTile> = (props) => {
 
     const [state, setState] = useState(1)
 
+    const addToBasket = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault()
+        console.log(1)
+    }
+
     return (
         <div className='item'>
 
@@ -48,7 +53,7 @@ const Item:FC<IMetalTile> = (props) => {
             {/*---- item counter ----*/}
             <div className="item-buy">
                 <Counter count={state} onChangeCount={setState}/>
-                <MainButton>Купить</MainButton>
+                <MainButton onClick={addToBasket}>Купить</MainButton>
             </div>
         </div>
     );
