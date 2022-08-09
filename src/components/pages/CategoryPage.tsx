@@ -1,11 +1,15 @@
 import React, {FC, useMemo, useState} from 'react';
 import {NavLink} from "react-router-dom";
 import Item from "../category/Item";
+import {useAppSelector} from "../../hooks/redux";
 
 const CategoryPage:FC = () => {
 
+    const data = useAppSelector(state => state.MetalTileSliceReducer.items)
+    console.log(data)
+
     const [state, setState] = useState([
-        {id: 1, title: 'Металлочерепица', count: 122},
+        {id: 1, title: 'Металлочерепица', count: data.length},
         {id: 2, title: 'Композитная черепица', count: 222},
         {id: 3, title: 'Гибкая черепица', count: 1654},
         {id: 4, title: 'Профнастил', count: 12},
@@ -49,13 +53,21 @@ const CategoryPage:FC = () => {
 
                         {/*---- Items ----*/}
                         <div className="block-materials">
-                                <Item/>
-                                <Item/>
-                                <Item/>
-                                <Item/>
-                                <Item/>
-                                <Item/>
-                                <Item/>
+                            {
+                                data.length === 0
+                                    ? <div>Товары отсутсвуют</div>
+                                    : data.map(item =>
+                                        <Item
+                                            key={item.id}
+                                            id={item.id}
+                                            img={item.img}
+                                            title={item.title}
+                                            price={item.price}
+                                            article={item.article}
+                                            availability={item.availability}
+                                        />
+                                    )
+                            }
                         </div>
                     </div>
                 </div>
