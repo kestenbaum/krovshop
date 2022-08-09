@@ -1,7 +1,6 @@
 import React, {FC, useState} from 'react';
 import IconBasket from '../../assets/img/basket.svg'
 import Modal from "../UI/Modal/Modal";
-import Item from "../category/Item";
 
 
 const Basket:FC = () => {
