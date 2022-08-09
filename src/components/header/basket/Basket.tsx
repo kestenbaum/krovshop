@@ -1,6 +1,8 @@
 import React, {FC, useState} from 'react';
-import IconBasket from '../../assets/img/basket.svg'
-import Modal from "../UI/Modal/Modal";
+import IconBasket from '../../../assets/img/basket.svg'
+import Modal from "../../UI/Modal/Modal";
+import {useAppSelector} from "../../../hooks/redux";
+import BasketItem from "./BasketItem";
 
 
 const Basket:FC = () => {
@@ -9,6 +11,7 @@ const Basket:FC = () => {
     const handlerModal = () => {
         setModal(!modal)
     }
+    const data = useAppSelector(state => state.BasketSliceReducer.basket)
 
     return (
         <div className='basket' onClick={handlerModal}>
@@ -20,7 +23,12 @@ const Basket:FC = () => {
                 <span className='m-text'>/ 0 руб</span>
             </div>
             <Modal visible={modal} setVisible={setModal}>
-                46565
+                {
+                    data.length === 1
+                    ? <div>Корзина пуста</div>
+                    : <BasketItem/>
+
+                }
             </Modal>
         </div>
     );
