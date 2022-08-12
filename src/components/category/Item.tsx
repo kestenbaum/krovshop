@@ -6,17 +6,33 @@ import {NavLink} from "react-router-dom";
 import MainButton from "../UI/MainButton/MainButton";
 import Counter from "../UI/Counter/Counter";
 import {IMetalTile} from "../../models/Items";
+import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+import {BasketSlice, BasketSliceReducer} from "../../store/reducer/BasketSlice";
+import Basket from "../header/basket/Basket";
+import BasketItem from "../header/basket/BasketItem";
 
 
 const Item:FC<IMetalTile> = (props) => {
 
     const [state, setState] = useState(1)
+    const dispatch = useAppDispatch()
+    const basketData = useAppSelector(state => state.BasketSliceReducer.basket)
+
+
 
     const addToBasket = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault()
-        console.log(1)
-    }
 
+        let addToItemBasket = {
+            id: props.id,
+            count: state
+        }
+
+        localStorage.setItem('basket', JSON.stringify(basketData))
+
+        dispatch(BasketSlice.actions.addToBasket(addToItemBasket))
+    }
+    console.log('basket ', basketData)
     return (
         <div className='item'>
 

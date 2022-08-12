@@ -20,7 +20,7 @@ const initialState:IInitialState = {
             availability: true,
             title: 'Битумная черепица RUFLEX (РУФЛЕКС) | коллекция MINT',
             img: m1,
-            price: 750
+            price: 1750
         },
         {
             id: 3,

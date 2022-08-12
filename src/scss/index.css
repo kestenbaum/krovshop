@@ -106,6 +106,7 @@
 
 .basket-item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 25px;
   border: 2px solid #7A004F;
@@ -114,6 +115,20 @@
 .basket-item img {
   max-width: 50px;
   max-height: 50px;
+}
+
+.s-block {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.basket-wrapper {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #644E91;
+  gap: 20px;
+  padding: 25px;
 }
 
 /*---- HeaderSearch ----*/

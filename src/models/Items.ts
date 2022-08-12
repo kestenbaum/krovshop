@@ -10,8 +10,12 @@ export interface IMetalTile {
 
 {/** --Basket-- **/}
 export interface IBasket {
-    id: number
-    img: any
-    totalPrice: number
-    count: number
+    id?: number
+    title?: string
+    img?: any
+    price?: number
+    count ?: number
+    article?: number
+    availability?: boolean
 }
+

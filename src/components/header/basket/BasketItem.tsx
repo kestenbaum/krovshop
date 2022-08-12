@@ -1,20 +1,42 @@
-import React, {useState} from 'react';
+import React, {FC, useMemo, useState} from 'react';
 import Counter from "../../UI/Counter/Counter";
 import MainButton from "../../UI/MainButton/MainButton";
-import m1 from '../../../assets/img/materials/m-1.png'
-const BasketItem = () => {
+import {BasketSlice} from "../../../store/reducer/BasketSlice";
+import {IBasket} from "../../../models/Items";
+import {useAppDispatch} from "../../../hooks/redux";
 
-    const [conter, setCounter] = useState<number>(1)
+
+
+const BasketItem:FC<IBasket> = (props) => {
+
+    const dispatch = useAppDispatch()
+    const [counter, setCounter] = useState<number>(props.count || 1)
+
+    const removeItem = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault()
+        dispatch(BasketSlice.actions.removeToBasket(props.id))
+    }
+
+    const allPrice =  useMemo(() => {
+        return props.price ? props.price * counter : null
+    }, [counter])
 
     return (
         <div className='basket-item'>
-            <div className="title-block">
-                <h3>Title</h3>
+
+            <div className="f-block">
+                <div className="title-block">
+                    <h3>{props.title}</h3>
+                </div>
+                <img src={props.img} alt="img-item"/>
             </div>
-            <img src={m1} alt="img-item"/>
-            <Counter count={conter} onChangeCount={setCounter}/>
-            <div className="all-price"></div>
-            <MainButton>Удалить</MainButton>
+
+            <div className="s-block">
+                <Counter count={counter} onChangeCount={setCounter}/>
+                <div className="all-price">{allPrice} руб</div>
+                <MainButton onClick={removeItem}>Удалить</MainButton>
+            </div>
+
         </div>
     );
 };

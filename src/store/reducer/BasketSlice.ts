@@ -9,13 +9,21 @@ const initialState:IInitialState = {
     basket: []
 }
 
-const BasketSlice = createSlice({
+export const BasketSlice = createSlice({
     name: 'basket',
     initialState,
     reducers: {
         addToBasket (state, action) {
-            state.basket = [...state.basket, action.payload]
-        }
+            let idxItem = state.basket.findIndex(element => element.id === action.payload.id)
+            if (idxItem === -1) {
+                state.basket = [...state.basket, action.payload]
+            } else {
+                state.basket[idxItem].count += action.payload.count
+            }
+        },
+       removeToBasket(state, action) {
+            state.basket = state.basket.filter(item => item.id !== action.payload)
+       }
     }
 })
 

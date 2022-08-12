@@ -6,7 +6,6 @@ import CategoryPage from "./pages/CategoryPage";
 import FirstPage from "./pages/FirstPage";
 import AboutPage from "./pages/AboutPage";
 
-
 const Layout:FC = () => {
     return (
         <div>
