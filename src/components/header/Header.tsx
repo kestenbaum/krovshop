@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import Logo from "./Logo";
 import Profile from "./Profile";
-import Favorites from "./Favorites";
+import Favorites from "./favorites/Favorites";
 import Basket from "./basket/Basket";
 import Search from "./Search";
 
