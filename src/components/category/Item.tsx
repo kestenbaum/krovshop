@@ -14,25 +14,26 @@ import BasketItem from "../header/basket/BasketItem";
 
 const Item:FC<IMetalTile> = (props) => {
 
-    const [state, setState] = useState(1)
+    {/*---- State Counter ----*/}
+    const [counter, setCounter] = useState<number>(1)
+
+    {/*---- Create Dispatch----*/}
     const dispatch = useAppDispatch()
+
+    {/*---- Get Basket ----*/}
     const basketData = useAppSelector(state => state.BasketSliceReducer.basket)
 
-
-
+    {/*---- functions ----*/}
     const addToBasket = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault()
-
         let addToItemBasket = {
             id: props.id,
-            count: state
+            count: counter
         }
-
         localStorage.setItem('basket', JSON.stringify(basketData))
-
         dispatch(BasketSlice.actions.addToBasket(addToItemBasket))
     }
-    console.log('basket ', basketData)
+
     return (
         <div className='item'>
 
@@ -68,7 +69,7 @@ const Item:FC<IMetalTile> = (props) => {
 
             {/*---- item counter ----*/}
             <div className="item-buy">
-                <Counter count={state} onChangeCount={setState}/>
+                <Counter count={counter} onChangeCount={setCounter}/>
                 <MainButton onClick={addToBasket}>Купить</MainButton>
             </div>
         </div>
