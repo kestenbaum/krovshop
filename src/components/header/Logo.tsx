@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {FC} from 'react';
 import logo from '../../assets/img/logo.svg'
 
 
-const Logo = () => {
+const Logo:FC = () => {
     return (
         <div className='logo'>
             <img src={logo} alt='Логотип сайта'/>
