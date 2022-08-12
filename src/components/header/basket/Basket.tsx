@@ -8,30 +8,34 @@ import {IBasket} from "../../../models/Items";
 
 const Basket: FC = () => {
 
+    {/*---- State Modal ----*/}
     const [modal, setModal] = useState<boolean>(false)
+
+    {/*---- get Data----*/}
+    const getBasketData = useAppSelector(state => state.BasketSliceReducer.basket)
+    const getProductsData = useAppSelector(state => state.MetalTileSliceReducer.items)
+
+    {/*---- events ----*/}
     const handlerModal = () => {
         setModal(!modal)
     }
 
-    const basket = useAppSelector(state => state.BasketSliceReducer.basket)
-    const products = useAppSelector(state => state.MetalTileSliceReducer.items)
 
     let result: IBasket[] = []
 
-    if (basket.length > 0) {
-        result = basket.map(item => {
-                const itemBasket = products.find(el => el.id === item.id)
+    if (getBasketData.length > 0) {
+        result = getBasketData.map(item => {
+                const itemBasket = getProductsData.find(el => el.id === item.id)
                 return {
                     ...itemBasket,
                     count: item.count || 1,
                 }
             }
         )
-        console.log('result ', result)
     }
 
     const priceAll = useMemo(() => {
-        if (Array.isArray(basket)) {
+        if (Array.isArray(getBasketData)) {
             const getValueByKey = (item: any, key: string) => {
                 return item[key] ? item[key] : 1
             }
@@ -40,6 +44,7 @@ const Basket: FC = () => {
             return 0
         }
     }, [result])
+
 
     return (
         <div className='basket' onClick={handlerModal}>
@@ -56,14 +61,7 @@ const Basket: FC = () => {
                         ? <div>Корзина пуста</div>
                         : <div className='basket-wrapper'>
                             {result.map(item =>
-                                <BasketItem
-                                    key={item.id}
-                                    id={item.id}
-                                    title={item.title}
-                                    price={item.price}
-                                    img={item.img}
-                                    count={item.count}
-                                />
+                                <BasketItem props={item} />
                             )}
                         </div>
                 }
