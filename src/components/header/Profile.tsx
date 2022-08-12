@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {FC} from 'react';
 import IconProfile from '../../assets/img/profile.svg'
 
-const Profile = () => {
+const Profile:FC = () => {
     return (
         <div className='profile'>
             <div className='profile-icon'>
