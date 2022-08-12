@@ -15,6 +15,12 @@ const Favorites:FC = () => {
     return (
         <div className='favorites' onClick={handlerModal}>
             <img src={IconFavorites} alt='Иконка избраного'/>
+
+            {/*---- count items favorites ----*/}
+            <div className="favorites-count">
+                <span>1</span>
+            </div>
+
             <Modal visible={modal} setVisible={setModal}>
                 <FavoriteItem/>
             </Modal>

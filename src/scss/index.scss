@@ -56,8 +56,23 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  position: relative;
 }
-
+.favorites-count {
+  position: absolute;
+  content: '';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -12px;
+  right: -12px;
+  height: 20px;
+  width: 20px;
+  background-color: #644E91;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 50%;
+}
 /*---- HeaderBasket ----*/
 .basket{
   display: flex;
