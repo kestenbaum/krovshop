@@ -5,13 +5,18 @@ import {BasketSlice} from "../../../store/reducer/BasketSlice";
 import {IBasket} from "../../../models/Items";
 import {useAppDispatch} from "../../../hooks/redux";
 
+interface IBasketItem {
+    props: IBasket
+}
 
-
-const BasketItem:FC<IBasket> = (props) => {
-
+const BasketItem:FC<IBasketItem> = ({props}) => {
+    {/*---- create dispatch ----*/}
     const dispatch = useAppDispatch()
+
+    {/*---- create counter ----*/}
     const [counter, setCounter] = useState<number>(props.count || 1)
 
+    {/*---- functions ----*/}
     const removeItem = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault()
         dispatch(BasketSlice.actions.removeToBasket(props.id))
@@ -20,6 +25,9 @@ const BasketItem:FC<IBasket> = (props) => {
     const allPrice =  useMemo(() => {
         return props.price ? props.price * counter : null
     }, [counter])
+
+
+
 
     return (
         <div className='basket-item'>
