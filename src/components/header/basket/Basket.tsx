@@ -20,7 +20,7 @@ const Basket: FC = () => {
         setModal(!modal)
     }
 
-
+    {/*---- functions ----*/}
     let result: IBasket[] = []
 
     if (getBasketData.length > 0) {
@@ -34,35 +34,33 @@ const Basket: FC = () => {
         )
     }
 
-    const priceAll = useMemo(() => {
-        if (Array.isArray(getBasketData)) {
-            const getValueByKey = (item: any, key: string) => {
-                return item[key] ? item[key] : 1
-            }
-            return result.reduce((acc, item) => acc + getValueByKey(item, 'count') * getValueByKey(item, 'price'), 0)
-        } else {
-            return 0
-        }
-    }, [result])
-
-
     return (
         <div className='basket' onClick={handlerModal}>
             <div className='icon-basket'>
                 <img src={IconBasket} alt='Иконка корзины'/>
             </div>
+
             <div className='info-basket'>
-                <span className='m-text'>Корзина </span>
-                <span className='m-text'> {priceAll} руб</span>
+                <span className='m-text r-text'>Корзина
+                    {/*---- count items favorites ----*/}
+                    <div className="basket-count">
+                        <span>{getBasketData.length}</span>
+                    </div>
+                </span>
+
+
             </div>
+
+
             <Modal visible={modal} setVisible={setModal}>
                 {
                     result.length === 0
                         ? <div>Корзина пуста</div>
                         : <div className='basket-wrapper'>
                             {result.map(item =>
-                                <BasketItem props={item} />
+                                <BasketItem key={item.id} props={item} />
                             )}
+                            <div className='basket-price'>Общая сумма товаров: 0 рублей</div>
                         </div>
                 }
             </Modal>
@@ -70,4 +68,4 @@ const Basket: FC = () => {
     );
 };
 
-export default Basket;
+export default React.memo(Basket);

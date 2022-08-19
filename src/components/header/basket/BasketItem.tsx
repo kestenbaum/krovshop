@@ -30,7 +30,7 @@ const BasketItem:FC<IBasketItem> = ({props}) => {
 
 
     return (
-        <div className='basket-item'>
+        <div className='favorite-item'>
 
             <div className="f-block">
                 <div className="title-block">
@@ -49,4 +49,4 @@ const BasketItem:FC<IBasketItem> = ({props}) => {
     );
 };
 
-export default BasketItem;
+export default React.memo(BasketItem);

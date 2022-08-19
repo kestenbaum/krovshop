@@ -1,10 +1,12 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import {MetalTileSliceReducer} from "./reducer/MetalTileSlice";
 import {BasketSliceReducer} from "./reducer/BasketSlice";
+import {FavoriteSliceReducer} from "./reducer/FavoriteSlice";
 
 export const store = combineReducers({
     MetalTileSliceReducer,
-    BasketSliceReducer
+    BasketSliceReducer,
+    FavoriteSliceReducer
 })
 
 export const setupStore = () => {

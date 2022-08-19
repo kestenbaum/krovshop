@@ -1,27 +1,26 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useCallback, useEffect, useMemo, useState} from 'react';
 import material from '../../assets/img/materials/m-1.png'
-import IVisible from '../../assets/img/IVisible.png'
-import IFavorites from '../../assets/img/IFavorites.png'
-import {NavLink} from "react-router-dom";
+import IFavorites from '../../assets/img/favorite.svg'
+import IFavoritesActive from '../../assets/img/favorite-active.svg'
 import MainButton from "../UI/MainButton/MainButton";
 import Counter from "../UI/Counter/Counter";
 import {IMetalTile} from "../../models/Items";
-import {useAppDispatch, useAppSelector} from "../../hooks/redux";
-import {BasketSlice, BasketSliceReducer} from "../../store/reducer/BasketSlice";
-import Basket from "../header/basket/Basket";
-import BasketItem from "../header/basket/BasketItem";
+import {useAppDispatch} from "../../hooks/redux";
+import {BasketSlice} from "../../store/reducer/BasketSlice";
+import {FavoriteSlice} from "../../store/reducer/FavoriteSlice";
 
+interface IItem {
+    props: IMetalTile
+}
 
-const Item:FC<IMetalTile> = (props) => {
+const Item:FC<IItem> = ({props}) => {
+    const [disabled, setDisabled] = useState<boolean>(false)
 
     {/*---- State Counter ----*/}
     const [counter, setCounter] = useState<number>(1)
 
     {/*---- Create Dispatch----*/}
     const dispatch = useAppDispatch()
-
-    {/*---- Get Basket ----*/}
-    const basketData = useAppSelector(state => state.BasketSliceReducer.basket)
 
     {/*---- functions ----*/}
     const addToBasket = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -30,8 +29,22 @@ const Item:FC<IMetalTile> = (props) => {
             id: props.id,
             count: counter
         }
-        localStorage.setItem('basket', JSON.stringify(basketData))
         dispatch(BasketSlice.actions.addToBasket(addToItemBasket))
+    }
+
+    const addToFavorites = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault()
+        let addToItemFavorite = {
+            id: props.id,
+            disabled: disabled
+        }
+        if (disabled){
+            dispatch(FavoriteSlice.actions.removeFavorite(props.id))
+        }
+        else {
+            dispatch(FavoriteSlice.actions.addToFavorite(addToItemFavorite))
+        }
+        setDisabled(!disabled)
     }
 
     return (
@@ -53,17 +66,18 @@ const Item:FC<IMetalTile> = (props) => {
                 <h3>{props.title}</h3>
             </div>
 
-
             {/*---- block price ----*/}
             <div className="item-option">
                 <span className="item-price">{props.price} руб / м2</span>
                 <div className="block-option">
-                    <NavLink to='/'>
-                        <img src={IVisible} alt="visible"/>
-                    </NavLink>
-                    <NavLink to='/'>
-                        <img src={IFavorites} alt="favorites"/>
-                    </NavLink>
+                    {/*---- btn to favorites ----*/}
+                    <button
+                       className='icon-favorite'
+                       onClick={addToFavorites}
+                    >
+                        <img src={disabled ? IFavoritesActive : IFavorites} alt="favorites" className='favorite-img'/>
+                    </button>
+
                 </div>
             </div>
 
@@ -76,4 +90,4 @@ const Item:FC<IMetalTile> = (props) => {
     );
 };
 
-export default Item;
+export default React.memo(Item);

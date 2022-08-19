@@ -16,7 +16,7 @@ const Header:FC = () => {
                              <Logo/>
                              <Search/>
                         </div>
-                        <div className='header-col6'>
+                        <div className='header-col6 header-nav'>
                             <Profile/>
                             <Favorites/>
                             <Basket/>

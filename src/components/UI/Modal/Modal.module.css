@@ -10,6 +10,7 @@
 .modalWrapper{
     padding: 25px;
     background: #fff;
+     width: 80%;
 }
 .active{
     display: flex;

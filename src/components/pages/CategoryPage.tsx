@@ -55,15 +55,7 @@ const CategoryPage:FC = () => {
                                 data.length === 0
                                     ? <div>Товары отсутсвуют</div>
                                     : data.map(item =>
-                                        <Item
-                                            key={item.id}
-                                            id={item.id}
-                                            img={item.img}
-                                            title={item.title}
-                                            price={item.price}
-                                            article={item.article}
-                                            availability={item.availability}
-                                        />
+                                        <Item key={item.id} props={item}/>
                                     )
                             }
                         </div>
@@ -74,4 +66,4 @@ const CategoryPage:FC = () => {
     );
 };
 
-export default CategoryPage;
+export default React.memo(CategoryPage);
