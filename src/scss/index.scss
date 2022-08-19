@@ -535,18 +535,47 @@
 /*---- profile page ----*/
 .profile-page {
   margin-top: 80px;
+  min-height: calc(100vh - 197px);
 }
 .profile-wrapper{
   display: flex;
   justify-content: space-between;
+  padding: 25px;
 }
 .profile-info{
+  display: flex;
+  flex-direction: column;
   flex: 0 0 50%;
+  gap: 20px;
 }
 .user-avatar{
   width: 200px;
   height: 200px;
 }
+.profile-names{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .profile-data{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   flex: 0 0 50%;
+}
+.user-label{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.user-info{
+  font-size: 20px;
+  font-weight: bold;
+}
+.user-phone{
+  font-size: 16px;
+  font-weight: normal;
+  text-decoration: none;
+  color: #7A004F;
+
 }

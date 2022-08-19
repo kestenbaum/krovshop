@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
-import Avatar from '../../../assets/img/avatar.jpg'
+import ProfileInfo from "./ProfileInfo";
+import ProfileData from "./ProfileData";
 
 const ProfilePage: FC = () => {
 
@@ -10,22 +11,10 @@ const ProfilePage: FC = () => {
             <div className="container">
                 <div className="profile-wrapper">
                     {/*---- Profile info user ----*/}
-                    <div className="profile-info">
-                        <div className="profile-avatar">
-                            <img className='user-avatar' src={Avatar} alt="user-avatar"/>
-                        </div>
-
-                        <div className="profile-names">
-                            <span className='profile-user'>Name</span>
-                            <span className='profile-user'>UserName</span>
-                        </div>
-                    </div>
+                    <ProfileInfo/>
 
                     {/*---- profile data ----*/}
-                    <div className="profile-data">
-                        <span>phone</span>
-                        <span>mail</span>
-                    </div>
+                    <ProfileData/>
                 </div>
             </div>
         </div>
