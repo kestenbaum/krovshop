@@ -1,11 +1,11 @@
-import React, {FC, useCallback, useEffect, useMemo, useState} from 'react';
+import React, {FC, useState} from 'react';
 import material from '../../assets/img/materials/m-1.png'
 import IFavorites from '../../assets/img/favorite.svg'
 import IFavoritesActive from '../../assets/img/favorite-active.svg'
 import MainButton from "../UI/MainButton/MainButton";
 import Counter from "../UI/Counter/Counter";
 import {IMetalTile} from "../../models/Items";
-import {useAppDispatch} from "../../hooks/redux";
+import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {BasketSlice} from "../../store/reducer/BasketSlice";
 import {FavoriteSlice} from "../../store/reducer/FavoriteSlice";
 
@@ -14,6 +14,10 @@ interface IItem {
 }
 
 const Item:FC<IItem> = ({props}) => {
+
+    const dataProduct = useAppSelector(state => state.MetalTileSliceReducer.items)
+    const dataFavorites = useAppSelector(state => state.FavoriteSliceReducer.items)
+
     const [disabled, setDisabled] = useState<boolean>(false)
 
     {/*---- State Counter ----*/}
@@ -38,14 +42,19 @@ const Item:FC<IItem> = ({props}) => {
             id: props.id,
             disabled: disabled
         }
+
         if (disabled){
             dispatch(FavoriteSlice.actions.removeFavorite(props.id))
+            console.log('a')
         }
         else {
             dispatch(FavoriteSlice.actions.addToFavorite(addToItemFavorite))
+            const idx = dataFavorites.find(item => item.id === addToItemFavorite.id)
+            console.log(idx?.disabled)
         }
         setDisabled(!disabled)
     }
+
 
     return (
         <div className='item'>

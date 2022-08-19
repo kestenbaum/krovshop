@@ -6,7 +6,6 @@ export interface IMetalTile {
     title: string
     img: any
     price: number
-    disabled: boolean
 }
 
 {/** --Basket-- **/}

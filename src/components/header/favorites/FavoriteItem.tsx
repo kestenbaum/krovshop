@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import MainButton from "../../UI/MainButton/MainButton";
 import {IFavoriteElement} from "../../../models/Items";
 import {useAppDispatch} from "../../../hooks/redux";
@@ -9,19 +9,13 @@ interface IFavoritesItem {
 }
 
 const FavoriteItem:FC<IFavoritesItem> = ({props}) => {
-
-    const [disabled, setDisabled] = useState(props.disabled)
-
     {/*---- create dispatch ----*/}
     const dispatch = useAppDispatch()
 
     {/*---- functions ----*/}
     const removeItemToFavorite = () => {
-        dispatch(FavoriteSlice.actions.removeFavorite(props.id))
-        setDisabled(!disabled)
+        dispatch(FavoriteSlice.actions.removeFavorite(props))
     }
-
-    console.log(props)
 
     return (
         <div className='favorite-item'>

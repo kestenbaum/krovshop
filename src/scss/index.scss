@@ -531,3 +531,22 @@
 .about-btn{
   text-decoration: none;
 }
+
+/*---- profile page ----*/
+.profile-page {
+  margin-top: 80px;
+}
+.profile-wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+.profile-info{
+  flex: 0 0 50%;
+}
+.user-avatar{
+  width: 200px;
+  height: 200px;
+}
+.profile-data{
+  flex: 0 0 50%;
+}
