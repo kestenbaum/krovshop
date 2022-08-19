@@ -41,14 +41,12 @@ const Basket: FC = () => {
             </div>
 
             <div className='info-basket'>
-                <span className='m-text r-text'>Корзина
+                <span className='m-text r-text'>
                     {/*---- count items favorites ----*/}
                     <div className="basket-count">
                         <span>{getBasketData.length}</span>
                     </div>
                 </span>
-
-
             </div>
 
 
