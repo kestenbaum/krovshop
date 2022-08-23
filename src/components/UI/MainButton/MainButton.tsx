@@ -2,8 +2,10 @@ import React, {FC} from 'react';
 import style from '../MainButton/MainButton.module.css'
 
 interface IMainButton extends
-    React.DetailedHTMLProps<React.HTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
-{}
+    React.DetailedHTMLProps<React.BaseHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
+{
+    disabled?: boolean
+}
 
 const MainButton:FC<IMainButton> = (props) => {
 

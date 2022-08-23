@@ -33,10 +33,3 @@ export interface IFavoriteElement {
     count?: number
 }
 
-/*---- Category  ---- */
-
-export interface ICategories {
-    title: string
-    description: string
-    path: string
-}
