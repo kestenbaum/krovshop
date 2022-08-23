@@ -46,6 +46,9 @@
   justify-content: flex-end;
   gap: 40px;
 }
+.logo{
+  cursor: pointer;
+}
 .basket-count {
   position: absolute;
   content: '';

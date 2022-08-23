@@ -86,6 +86,10 @@
   gap: 40px;
 }
 
+.logo {
+  cursor: pointer;
+}
+
 .basket-count {
   position: absolute;
   content: "";
