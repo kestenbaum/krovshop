@@ -676,4 +676,39 @@
   color: #7A004F;
 }
 
+/*---- Login ----*/
+.login {
+  padding: 60px 0;
+}
+
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 240px);
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 25px;
+  border: 2px solid #7A004F;
+  border-radius: 15px;
+  width: 60%;
+}
+
+.label-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+.form-inp {
+  padding: 5px 15px;
+  border: 2px solid #7A004F;
+  border-radius: 15px;
+}
+
 /*# sourceMappingURL=index.css.map */
