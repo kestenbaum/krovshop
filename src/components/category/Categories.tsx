@@ -4,9 +4,7 @@ import Category from "./Category";
 const Categories = () => {
     return (
         <div className='categories'>
-            <Category/>
-            <Category/>
-            <Category/>
+            <Category />
         </div>
     );
 };

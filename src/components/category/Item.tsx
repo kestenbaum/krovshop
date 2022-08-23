@@ -1,24 +1,23 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useCallback, useState} from 'react';
 import material from '../../assets/img/materials/m-1.png'
 import IFavorites from '../../assets/img/favorite.svg'
 import IFavoritesActive from '../../assets/img/favorite-active.svg'
 import MainButton from "../UI/MainButton/MainButton";
 import Counter from "../UI/Counter/Counter";
-import {IMetalTile} from "../../models/Items";
+import {IMetal} from "../../models/Items";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {BasketSlice} from "../../store/reducer/BasketSlice";
 import {FavoriteSlice} from "../../store/reducer/FavoriteSlice";
 
+
 interface IItem {
-    props: IMetalTile
+    props: IMetal
 }
 
 const Item:FC<IItem> = ({props}) => {
+    const [state, setState] = useState<boolean>(false)
 
-    const dataProduct = useAppSelector(state => state.MetalTileSliceReducer.items)
     const dataFavorites = useAppSelector(state => state.FavoriteSliceReducer.items)
-
-    const [disabled, setDisabled] = useState<boolean>(false)
 
     {/*---- State Counter ----*/}
     const [counter, setCounter] = useState<number>(1)
@@ -27,34 +26,24 @@ const Item:FC<IItem> = ({props}) => {
     const dispatch = useAppDispatch()
 
     {/*---- functions ----*/}
-    const addToBasket = (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault()
+    const addToBasket = useCallback(() => {
         let addToItemBasket = {
             id: props.id,
             count: counter
         }
         dispatch(BasketSlice.actions.addToBasket(addToItemBasket))
-    }
+    }, [])
 
-    const addToFavorites = (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault()
+    const addToFavorites = useCallback(() => {
         let addToItemFavorite = {
             id: props.id,
-            disabled: disabled
+            disabled: state
         }
+        dispatch(FavoriteSlice.actions.addToFavorite(addToItemFavorite))
+    }, [dataFavorites])
 
-        if (disabled){
-            dispatch(FavoriteSlice.actions.removeFavorite(props.id))
-            console.log('a')
-        }
-        else {
-            dispatch(FavoriteSlice.actions.addToFavorite(addToItemFavorite))
-            const idx = dataFavorites.find(item => item.id === addToItemFavorite.id)
-            console.log(idx?.disabled)
-        }
-        setDisabled(!disabled)
-    }
 
+    console.log('render Item')
 
     return (
         <div className='item'>
@@ -84,7 +73,7 @@ const Item:FC<IItem> = ({props}) => {
                        className='icon-favorite'
                        onClick={addToFavorites}
                     >
-                        <img src={disabled ? IFavoritesActive : IFavorites} alt="favorites" className='favorite-img'/>
+                        <img src={state ? IFavoritesActive : IFavorites} alt="favorites" className='favorite-img'/>
                     </button>
 
                 </div>

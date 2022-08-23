@@ -1,5 +1,5 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import {MetalTileSliceReducer} from "./reducer/MetalTileSlice";
+import {MetalTileSliceReducer} from "./reducer/MetalSlice";
 import {BasketSliceReducer} from "./reducer/BasketSlice";
 import {FavoriteSliceReducer} from "./reducer/FavoriteSlice";
 

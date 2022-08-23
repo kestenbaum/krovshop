@@ -1,14 +1,15 @@
-
-export interface IMetalTile {
+/*---- Metal ----*/
+export interface IMetal {
     id: number
     article: number
     availability: boolean
     title: string
     img: any
     price: number
+    favorite: boolean
 }
 
-{/** --Basket-- **/}
+/*---- Basket-- -----*/
 export interface IBasket {
     id?: number
     article?: number
@@ -19,7 +20,7 @@ export interface IBasket {
     count?: number
 }
 
-{/*---- favorites -----*/}
+/*---- favorites -----*/
 
 export interface IFavoriteElement {
     disabled?: boolean
@@ -30,4 +31,12 @@ export interface IFavoriteElement {
     img?: any
     price?: number
     count?: number
+}
+
+/*---- Category  ---- */
+
+export interface ICategories {
+    title: string
+    description: string
+    path: string
 }

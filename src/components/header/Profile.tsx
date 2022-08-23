@@ -1,16 +1,17 @@
 import React, {FC} from 'react';
 import IconProfile from '../../assets/img/profile.svg'
+import {NavLink} from "react-router-dom";
 
 const Profile:FC = () => {
     return (
-        <div className='profile'>
+        <NavLink to='/profile' className='profile'>
             <div className='profile-icon'>
                 <img src={IconProfile} alt='Иконка профиля'/>
             </div>
             <div className='info-profile'>
                 <span className='m-text'>Мой аккаунт</span>
             </div>
-        </div>
+        </NavLink>
     );
 };
 

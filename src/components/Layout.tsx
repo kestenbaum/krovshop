@@ -13,7 +13,7 @@ const Layout:FC = () => {
             <Header/>
             <Routes>
                 <Route path='/' element={<FirstPage/>}/>
-                <Route path='/page' element={<CategoryPage/>}/>
+                <Route path='/page/:id' element={<CategoryPage/>}/>
                 <Route path='/about' element={<AboutPage/>}/>
                 <Route path='/profile' element={<ProfilePage/>}/>
             </Routes>

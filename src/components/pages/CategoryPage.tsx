@@ -1,23 +1,49 @@
-import React, {FC, useMemo, useState} from 'react';
-import {NavLink} from "react-router-dom";
+import React, {FC, useEffect, useState} from 'react';
+import {NavLink, useParams} from "react-router-dom";
 import Item from "../category/Item";
 import {useAppSelector} from "../../hooks/redux";
 
+
+
 const CategoryPage:FC = () => {
 
-    const data = useAppSelector(state => state.MetalTileSliceReducer.items)
+    /*---- data ----*/
+    const dataItems = useAppSelector(state => state.MetalTileSliceReducer)
+    const initialState = useAppSelector(state => state.MetalTileSliceReducer.items)
+
+    /*---- state array elements----*/
+    const [data, setData] = useState(initialState)
+
+    /*---- get array keys and value elements ----*/
+    const dataItemsKeys = Object.keys(dataItems)
+    const dataItemsValue = Object.values(dataItems)
+
+    /*---- create params ----*/
+    const params = useParams()
+
+    /*---- get element array to id----*/
+    const elementPageTitle = dataItemsKeys[Number(params.id)]
+    const elementId = dataItemsKeys.indexOf(elementPageTitle)
+    const pageId = dataItemsValue[elementId]
+
+    /*---- change page items ----*/
+    useEffect(() => {
+        setData(pageId)
+    }, [elementId])
+
+
+    /*---- Временный стейт ----*/
     const [state, setState] = useState([
-        {id: 1, title: 'Металлочерепица', count: data.length},
-        {id: 2, title: 'Композитная черепица', count: 222},
-        {id: 3, title: 'Гибкая черепица', count: 1654},
-        {id: 4, title: 'Профнастил', count: 12},
-        {id: 5, title: 'Натуральная черепица', count: 1111},
-        {id: 6, title: 'Изоляционие пленки', count: 122}
+        {id: 0, title: 'Металлочерепица', count: dataItems.items.length},
+        {id: 1, title: 'Композитная черепица', count: dataItems.metal.length},
+        {id: 2, title: 'Гибкая черепица', count: dataItems.flexible.length},
+        {id: 3, title: 'Профнастил', count: dataItems.decking.length},
+        {id: 4, title: 'Натуральная черепица', count: dataItems.natural.length},
+        {id: 5, title: 'Изоляционие пленки', count: dataItems.izolate.length}
     ])
 
-    const amountAll = useMemo(()  => {
-        return state.reduce((acc, item) => item.count + acc, 0)
-    }, [])
+    /*---- get title page----*/
+    const titleId = state[elementId].title
 
     return (
         <div className='category-page'>
@@ -26,10 +52,9 @@ const CategoryPage:FC = () => {
 
                     {/*---- Header page ----*/}
                     <div className="header-page">
-                        <h2 className="title-page">Металлочерепица</h2>
-                        <span className="amount-items">Найдено товаров: {amountAll}</span>
+                        <h2 className="title-page">{titleId}</h2>
+                        <span className="amount-items">Найдено товаров: {pageId.length}</span>
                     </div>
-
                     {/*---- Categories page----*/}
                     <div className="wrapper-page">
 
@@ -40,7 +65,7 @@ const CategoryPage:FC = () => {
                             </h3>
                             {state.map(item =>
                                 <NavLink
-                                    to='/'
+                                    to={`/page/${item.id}`}
                                     className='nav-category'
                                     key={item.id}
                                 >
