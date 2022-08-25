@@ -1,8 +1,8 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useEffect, useMemo, useState} from 'react';
 import {NavLink, useParams} from "react-router-dom";
 import Item from "../category/Item";
 import {useAppSelector} from "../../hooks/redux";
-
+import Search from "../UI/Search/Search";
 
 
 const CategoryPage:FC = () => {
@@ -13,6 +13,21 @@ const CategoryPage:FC = () => {
 
     /*---- state array elements----*/
     const [data, setData] = useState(initialState)
+
+    /*---- state search input ----*/
+    const [stateSearch, setValueSearch] = useState<string>('')
+
+    /*---- get value search ----*/
+    const handlerSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setValueSearch(event.target.value)
+    }
+
+    /*---- get all items shop----*/
+    const getAllValueItems = Object.values(dataItems).flat()
+
+    const resultMass = useMemo(() => {
+        return getAllValueItems.filter(item => item.title.includes(stateSearch))
+    }, [stateSearch])
 
     /*---- get array keys and value elements ----*/
     const dataItemsKeys = Object.keys(dataItems)
@@ -31,6 +46,9 @@ const CategoryPage:FC = () => {
         setData(pageId)
     }, [elementId])
 
+    useEffect(() => {
+        setValueSearch('')
+    }, [params.id])
 
     /*---- Временный стейт ----*/
     const [state, setState] = useState([
@@ -51,6 +69,12 @@ const CategoryPage:FC = () => {
                 <div className="wrapper">
 
                     {/*---- Header page ----*/}
+                    <div className="header-option">
+                        <div className='search-wrapper'>
+                            <Search valueInput={stateSearch} setValueInput={handlerSearch} />
+                        </div>
+                    </div>
+
                     <div className="header-page">
                         <h2 className="title-page">{titleId}</h2>
                         <span className="amount-items">Найдено товаров: {pageId.length}</span>
@@ -77,9 +101,14 @@ const CategoryPage:FC = () => {
                         {/*---- Items ----*/}
                         <div className="block-materials">
                             {
-                                data.length === 0
-                                    ? <div>Товары отсутсвуют</div>
-                                    : data.map(item =>
+                                resultMass.length === getAllValueItems.length
+                                ? data.map(item =>
+                                        <Item key={item.id} props={item}/>
+                                    )
+                                    :
+                                    resultMass.length === 0
+                                ? <div>По вашему запросу, нечего не найдено</div>
+                                        : resultMass.map(item =>
                                         <Item key={item.id} props={item}/>
                                     )
                             }

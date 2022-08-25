@@ -70,7 +70,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -706,6 +706,15 @@
 }
 
 .form-inp {
+  padding: 5px 15px;
+  border: 2px solid #7A004F;
+  border-radius: 15px;
+}
+
+/*----search ----*/
+.search-wrapper {
+  display: flex;
+  width: 100%;
   padding: 5px 15px;
   border: 2px solid #7A004F;
   border-radius: 15px;

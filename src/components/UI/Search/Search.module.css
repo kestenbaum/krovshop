@@ -1,0 +1,12 @@
+.inputModule{
+    width: 100%;
+    color: #7A004F;
+    border: none;
+}
+.inputModule:focus{
+    border: none;
+    outline: none;
+}
+.inputModule:focus::placeholder{
+    color: transparent;
+}
