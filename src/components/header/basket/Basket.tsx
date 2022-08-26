@@ -7,20 +7,27 @@ import {IBasket} from "../../../models/Items";
 
 
 const Basket: FC = () => {
-
-    {/*---- State Modal ----*/}
+    /*---- State Modal ----*/
     const [modal, setModal] = useState<boolean>(false)
 
-    {/*---- get Data----*/}
-    const getBasketData = useAppSelector(state => state.BasketSliceReducer.basket)
-    const getProductsData = useAppSelector(state => state.MetalTileSliceReducer.items)
+    const [totalPrice, setTotalPrice] = useState(0)
 
-    {/*---- events ----*/}
+    const handler = (num:number) => {
+        setTotalPrice(num)
+    }
+
+    console.log(totalPrice)
+    /*---- get Data----*/
+    const getBasketData = useAppSelector(state => state.BasketSliceReducer.basket)
+    const getProducts = useAppSelector(state => state.MetalTileSliceReducer)
+    const getProductsData = Object.values(getProducts).flat()
+
+    /*---- events ----*/
     const handlerModal = () => {
         setModal(!modal)
     }
 
-    {/*---- functions ----*/}
+    /*---- functions ----*/
     let result: IBasket[] = []
 
     if (getBasketData.length > 0) {
@@ -33,6 +40,10 @@ const Basket: FC = () => {
             }
         )
     }
+    /*----  подсчет всей суммы ----*/
+    const totalPriceBasket = useMemo(() => {
+        return totalPrice * getBasketData.length
+    }, [totalPrice])
 
     return (
         <div className='basket' onClick={handlerModal}>
@@ -48,17 +59,17 @@ const Basket: FC = () => {
                     </div>
                 </span>
             </div>
-
-
             <Modal visible={modal} setVisible={setModal}>
                 {
                     result.length === 0
                         ? <div>Корзина пуста</div>
-                        : <div className='basket-wrapper'>
-                            {result.map(item =>
-                                <BasketItem key={item.id} props={item} />
-                            )}
-                            <div className='basket-price'>Общая сумма товаров: 0 рублей</div>
+                        : <div className='favorite-wrapper'>
+                            <div className='favorites-block'>
+                                {result.map(item =>
+                                    <BasketItem key={item.id} props={item} onChange={handler}/>
+                                )}
+                                <div className='basket-price'>Общая сумма товаров: {totalPriceBasket} рублей</div>
+                            </div>
                         </div>
                 }
             </Modal>

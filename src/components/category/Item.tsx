@@ -1,4 +1,4 @@
-import React, {FC, useCallback, useState} from 'react';
+import React, {FC, useCallback, useEffect, useMemo, useState} from 'react';
 import material from '../../assets/img/materials/m-1.png'
 import IFavorites from '../../assets/img/favorite.svg'
 import IFavoritesActive from '../../assets/img/favorite-active.svg'
@@ -15,8 +15,10 @@ interface IItem {
 }
 
 const Item:FC<IItem> = ({props}) => {
-    const [state, setState] = useState<boolean>(false)
+    /*---- disabled ----*/
+    const [disabled, setDisabled] = useState<boolean>(false)
 
+    /*---- get data favorites ----*/
     const dataFavorites = useAppSelector(state => state.FavoriteSliceReducer.items)
 
     {/*---- State Counter ----*/}
@@ -26,28 +28,31 @@ const Item:FC<IItem> = ({props}) => {
     const dispatch = useAppDispatch()
 
     {/*---- functions ----*/}
+
+    /*---- add items to basket ----*/
     const addToBasket = useCallback(() => {
+
         let addToItemBasket = {
             id: props.id,
             count: counter
         }
         dispatch(BasketSlice.actions.addToBasket(addToItemBasket))
-    }, [])
+        setCounter(1)
+    }, [counter])
 
+
+    /*---- add items to favorites ----*/
     const addToFavorites = useCallback(() => {
         let addToItemFavorite = {
             id: props.id,
-            disabled: state
+            disabled: disabled
         }
         dispatch(FavoriteSlice.actions.addToFavorite(addToItemFavorite))
     }, [dataFavorites])
 
 
-    console.log('render Item')
-
     return (
         <div className='item'>
-
             {/*---- item info ----*/}
             <div className="item-info">
                 <div className="item-article">Артикул: {props.article}</div>
@@ -73,7 +78,7 @@ const Item:FC<IItem> = ({props}) => {
                        className='icon-favorite'
                        onClick={addToFavorites}
                     >
-                        <img src={state ? IFavoritesActive : IFavorites} alt="favorites" className='favorite-img'/>
+                        <img src={disabled? IFavoritesActive : IFavorites} alt="favorites" className='favorite-img'/>
                     </button>
 
                 </div>

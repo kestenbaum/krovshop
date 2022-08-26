@@ -27,7 +27,11 @@ const Counter:FC<ICounter> = ({count, onChangeCount}) => {
             >
                 -
             </button>
-            <span className="count">{count}</span>
+            <span
+                className="count"
+            >
+                {count}
+            </span>
             <button
                 onClick={increment}
                 className={style.btn}

@@ -18,7 +18,7 @@ export const BasketSlice = createSlice({
             if (idxItem === -1) {
                 state.basket = [...state.basket, action.payload]
             } else {
-                state.basket[idxItem].count += action.payload.count
+                state.basket[idxItem].count += action.payload.count + 1
             }
         },
        removeToBasket(state, action) {

@@ -9,7 +9,7 @@ const CategoryPage:FC = () => {
 
     /*---- data ----*/
     const dataItems = useAppSelector(state => state.MetalTileSliceReducer)
-    const initialState = useAppSelector(state => state.MetalTileSliceReducer.items)
+    const initialState = Object.values(dataItems)[0]
 
     /*---- state array elements----*/
     const [data, setData] = useState(initialState)
@@ -31,6 +31,7 @@ const CategoryPage:FC = () => {
 
     /*---- get array keys and value elements ----*/
     const dataItemsKeys = Object.keys(dataItems)
+
     const dataItemsValue = Object.values(dataItems)
 
     /*---- create params ----*/
@@ -38,8 +39,11 @@ const CategoryPage:FC = () => {
 
     /*---- get element array to id----*/
     const elementPageTitle = dataItemsKeys[Number(params.id)]
+
     const elementId = dataItemsKeys.indexOf(elementPageTitle)
+
     const pageId = dataItemsValue[elementId]
+
 
     /*---- change page items ----*/
     useEffect(() => {
@@ -50,18 +54,8 @@ const CategoryPage:FC = () => {
         setValueSearch('')
     }, [params.id])
 
-    /*---- Временный стейт ----*/
-    const [state, setState] = useState([
-        {id: 0, title: 'Металлочерепица', count: dataItems.items.length},
-        {id: 1, title: 'Композитная черепица', count: dataItems.metal.length},
-        {id: 2, title: 'Гибкая черепица', count: dataItems.flexible.length},
-        {id: 3, title: 'Профнастил', count: dataItems.decking.length},
-        {id: 4, title: 'Натуральная черепица', count: dataItems.natural.length},
-        {id: 5, title: 'Изоляционие пленки', count: dataItems.izolate.length}
-    ])
-
     /*---- get title page----*/
-    const titleId = state[elementId].title
+    const titleId = dataItemsKeys[elementId]
 
     return (
         <div className='category-page'>
@@ -87,13 +81,13 @@ const CategoryPage:FC = () => {
                             <h3 className="categories-title">
                                 Категории
                             </h3>
-                            {state.map(item =>
+                            {dataItemsKeys.map((item, idx) =>
                                 <NavLink
-                                    to={`/page/${item.id}`}
+                                    to={`/page/${idx}`}
                                     className='nav-category'
-                                    key={item.id}
+                                    key={idx}
                                 >
-                                    {item.title}({item.count})
+                                    {item}
                                 </NavLink>
                             )}
                         </div>

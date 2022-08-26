@@ -199,14 +199,7 @@
   display: flex;
   align-items: center;
   gap: 5px;
-}
-
-.basket-wrapper {
-  display: flex;
   flex-direction: column;
-  border: 2px solid #644E91;
-  gap: 20px;
-  padding: 25px;
 }
 
 /*---- HeaderSearch ----*/
@@ -294,6 +287,7 @@
 .f-block {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column-reverse;
 }
 
 .f-left {
@@ -550,6 +544,10 @@
 
 .title-block {
   padding: 20px;
+}
+
+.title-favorite {
+  padding: 20px 0;
 }
 
 .item-option {

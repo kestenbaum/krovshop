@@ -1,18 +1,8 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {IMetal} from "../../models/Items";
 import m1 from '../../assets/img/materials/m-1.png'
 
-interface IInitialState {
-    items: IMetal[]
-    metal: IMetal[]
-    flexible: IMetal[]
-    decking: IMetal[]
-    natural: IMetal[]
-    izolate: IMetal[]
-}
-
-const initialState:IInitialState = {
-    items: [
+const initialState = {
+     'Металлочерепица': [
         {
             id: 1,
             article: 12548,
@@ -49,7 +39,7 @@ const initialState:IInitialState = {
             favorite: false
         }
     ],
-    metal: [
+     'Композитная черепица': [
         {
             id: 5,
             article: 12548,
@@ -120,7 +110,7 @@ const initialState:IInitialState = {
             favorite: false
         }
     ],
-    flexible: [
+     'Гибкая черепица' : [
         {
             id: 13,
             article: 12548,
@@ -191,7 +181,7 @@ const initialState:IInitialState = {
             favorite: false
         }
     ],
-    decking: [
+     'Профнастил' : [
         {
             id: 21,
             article: 12548,
@@ -228,7 +218,7 @@ const initialState:IInitialState = {
             favorite: false
         }
     ],
-    natural: [
+     'Натуральная черепица' : [
         {
             id: 25,
             article: 12548,
@@ -265,7 +255,7 @@ const initialState:IInitialState = {
             favorite: false
         }
     ],
-    izolate: [
+     'Изоляционие пленки': [
         {
             id: 29,
             article: 12548,
@@ -317,8 +307,16 @@ const initialState:IInitialState = {
             img: m1,
             price: 3500,
             favorite: false
-        }
-    ]
+        },{
+             id: 35,
+             article: 19486,
+             availability: false,
+             title: 'Новая композитная черепица Metrotile (Метротайл) MetroBond коллекция “Зевс”',
+             img: m1,
+             price: 3500,
+             favorite: false
+         }
+    ],
 }
 
 export const MetalSlice = createSlice({

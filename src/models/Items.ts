@@ -1,12 +1,12 @@
 /*---- Metal ----*/
 export interface IMetal {
-    id: number
-    article: number
-    availability: boolean
-    title: string
-    img: any
-    price: number
-    favorite: boolean
+    id?: number
+    article?: number
+    availability?: boolean
+    title?: string
+    img?: any
+    price?: number
+    favorite?: boolean
 }
 
 /*---- Basket-- -----*/

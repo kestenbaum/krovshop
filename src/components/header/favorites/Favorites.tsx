@@ -12,7 +12,8 @@ const Favorites:FC = () => {
 
     {/*---- get data ----*/}
     const getFavoritesData = useAppSelector(state => state.FavoriteSliceReducer.items)
-    const getProductsData = useAppSelector(state => state.MetalTileSliceReducer.items)
+    const getProducts = useAppSelector(state => state.MetalTileSliceReducer)
+    const getProductsData = Object.values(getProducts).flat()
 
     {/*---- functions ----*/}
     const handlerModal = (event: React.MouseEvent<HTMLDivElement>) => {

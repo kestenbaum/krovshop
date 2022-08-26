@@ -2,7 +2,6 @@ import React, {FC} from 'react';
 import material from '../../assets/img/materials/1.png'
 import MainButton from "../UI/MainButton/MainButton";
 import {NavLink} from "react-router-dom";
-import {useAppSelector} from "../../hooks/redux";
 
 interface ICategoryItems {
     id?: number
@@ -10,7 +9,6 @@ interface ICategoryItems {
 }
 
 const CategoryItems:FC<ICategoryItems> = (props) => {
-    const data = useAppSelector(state => state.MetalTileSliceReducer)
 
     return (
         <div className='category-item'>

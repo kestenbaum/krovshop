@@ -1,13 +1,21 @@
 import React, {FC} from 'react';
 import MainButton from "../../UI/MainButton/MainButton";
 import {IFavoriteElement} from "../../../models/Items";
-
+import {useAppDispatch} from "../../../hooks/redux";
+import {FavoriteSlice} from "../../../store/reducer/FavoriteSlice";
 
 interface IFavoriteItem {
     props: IFavoriteElement
 }
 
 const FavoriteItem:FC<IFavoriteItem> = ({props}) => {
+    /*---- диспатч ----*/
+    const dispatch = useAppDispatch()
+
+    /*---- удаление изи избраного ----*/
+    const deleteFavoriteItems = () => {
+        dispatch(FavoriteSlice.actions.removeFavorite(props))
+    }
 
     return (
         <div className='favorite-item'>
@@ -15,7 +23,11 @@ const FavoriteItem:FC<IFavoriteItem> = ({props}) => {
                 <h3>{props.title}</h3>
                 <img src={props.img} alt="img"/>
             </div>
-            <MainButton>Cмотреть товар</MainButton>
+            <MainButton
+                onClick={deleteFavoriteItems}
+            >
+               Удалить
+            </MainButton>
         </div>
     );
 };
