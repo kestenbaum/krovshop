@@ -7,17 +7,18 @@ import {IBasket} from "../../../models/Items";
 
 
 const Basket: FC = () => {
-    /*---- State Modal ----*/
+    /*---- Состояние модального окна ----*/
     const [modal, setModal] = useState<boolean>(false)
 
+    /*---- Создание состояние для приема данных от ребенка ----*/
     const [totalPrice, setTotalPrice] = useState(0)
 
+    /*---- калбек фунция по приему данных с BasketItems ----*/
     const handler = (num:number) => {
         setTotalPrice(num)
     }
 
-    console.log(totalPrice)
-    /*---- get Data----*/
+    /*---- Получение данные с редакс ----*/
     const getBasketData = useAppSelector(state => state.BasketSliceReducer.basket)
     const getProducts = useAppSelector(state => state.MetalTileSliceReducer)
     const getProductsData = Object.values(getProducts).flat()

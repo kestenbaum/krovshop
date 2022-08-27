@@ -40,4 +40,4 @@ const AboutPage:FC = () => {
     );
 };
 
-export default AboutPage;
+export default React.memo(AboutPage);

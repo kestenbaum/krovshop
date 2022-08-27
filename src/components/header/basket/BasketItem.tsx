@@ -12,19 +12,19 @@ interface IBasketItem {
 
 const BasketItem:FC<IBasketItem> = ({props, onChange}) => {
 
-    const basket = useAppSelector(state => state.BasketSliceReducer.basket)
-    {/*---- create dispatch ----*/}
+    /*---- create dispatch ----*/
     const dispatch = useAppDispatch()
 
-    {/*---- create counter ----*/}
+    /*---- create counter ----*/
     const countProps = props.count ? props.count : 1
     const [counter, setCounter] = useState<number>(countProps)
 
-    {/*---- functions ----*/}
+    /*---- functions ----*/
     const removeItem = () => {
         dispatch(BasketSlice.actions.removeToBasket(props.id))
     }
 
+    /*---- получение цены елемента по формуле цена * количество ----*/
     const allPrice =  useMemo(() => {
         return props.price ? props.price * counter : 0
     }, [counter])
@@ -32,7 +32,6 @@ const BasketItem:FC<IBasketItem> = ({props, onChange}) => {
 
     useEffect(() => {
         onChange(allPrice)
-        console.log('all ', allPrice)
     }, [countProps, counter])
 
     return (

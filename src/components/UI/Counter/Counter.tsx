@@ -42,4 +42,4 @@ const Counter:FC<ICounter> = ({count, onChangeCount}) => {
     );
 };
 
-export default Counter;
+export default React.memo(Counter);

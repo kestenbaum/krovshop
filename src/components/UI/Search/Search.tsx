@@ -18,4 +18,4 @@ const Search :FC<ISearch> = ({valueInput, setValueInput}) => {
     );
 };
 
-export default Search;
+export default React.memo(Search);

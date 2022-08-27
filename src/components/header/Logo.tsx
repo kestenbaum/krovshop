@@ -11,4 +11,4 @@ const Logo:FC = () => {
     );
 };
 
-export default Logo;
+export default React.memo(Logo);

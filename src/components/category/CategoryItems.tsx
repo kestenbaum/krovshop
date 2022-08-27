@@ -24,4 +24,4 @@ const CategoryItems:FC<ICategoryItems> = (props) => {
     );
 };
 
-export default CategoryItems;
+export default React.memo(CategoryItems);

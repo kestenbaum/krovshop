@@ -3,6 +3,7 @@ import IconProfile from '../../assets/img/profile.svg'
 import {NavLink} from "react-router-dom";
 
 const Profile:FC = () => {
+
     return (
         <NavLink to='/profile' className='profile'>
             <div className='profile-icon'>
@@ -15,4 +16,4 @@ const Profile:FC = () => {
     );
 };
 
-export default Profile;
+export default React.memo(Profile);

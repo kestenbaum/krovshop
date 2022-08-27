@@ -7,20 +7,21 @@ import {IFavoriteElement} from "../../../models/Items";
 
 const Favorites:FC = () => {
 
-    {/*---- Create State Modal ----*/}
+    /*---- Состояние модального окна ----*/
     const [modal, setModal] = useState<boolean>(false)
 
-    {/*---- get data ----*/}
+    /*---- получение данных с редакс  ----*/
     const getFavoritesData = useAppSelector(state => state.FavoriteSliceReducer.items)
     const getProducts = useAppSelector(state => state.MetalTileSliceReducer)
     const getProductsData = Object.values(getProducts).flat()
 
-    {/*---- functions ----*/}
+    /*---- functions ----*/
     const handlerModal = (event: React.MouseEvent<HTMLDivElement>) => {
         event.preventDefault()
         setModal(!modal)
     }
 
+    /*---- создание результирующего массива с поиском елемента по id ----*/
     let result: IFavoriteElement[] = []
 
     if (getFavoritesData.length > 0) {

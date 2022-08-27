@@ -15,19 +15,18 @@ interface IItem {
 }
 
 const Item:FC<IItem> = ({props}) => {
+
     /*---- disabled ----*/
     const [disabled, setDisabled] = useState<boolean>(false)
 
     /*---- get data favorites ----*/
     const dataFavorites = useAppSelector(state => state.FavoriteSliceReducer.items)
 
-    {/*---- State Counter ----*/}
+    /*---- State Counter ----*/
     const [counter, setCounter] = useState<number>(1)
 
-    {/*---- Create Dispatch----*/}
+    /*---- Create Dispatch----*/
     const dispatch = useAppDispatch()
-
-    {/*---- functions ----*/}
 
     /*---- add items to basket ----*/
     const addToBasket = useCallback(() => {

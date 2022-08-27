@@ -1,6 +1,8 @@
 import {createSlice} from "@reduxjs/toolkit";
 import m1 from '../../assets/img/materials/m-1.png'
 
+
+/*---- данные с материалами ----*/
 const initialState = {
      'Металлочерепица': [
         {

@@ -18,4 +18,4 @@ const Private :FC = () => {
     );
 };
 
-export default Private;
+export default React.memo(Private);

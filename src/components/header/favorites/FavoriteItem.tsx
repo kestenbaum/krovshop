@@ -12,7 +12,7 @@ const FavoriteItem:FC<IFavoriteItem> = ({props}) => {
     /*---- диспатч ----*/
     const dispatch = useAppDispatch()
 
-    /*---- удаление изи избраного ----*/
+    /*---- удаление из избраного ----*/
     const deleteFavoriteItems = () => {
         dispatch(FavoriteSlice.actions.removeFavorite(props))
     }

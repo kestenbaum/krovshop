@@ -27,4 +27,4 @@ const Modal:FC<IModal> = ({visible, setVisible, children}) => {
     );
 };
 
-export default Modal;
+export default React.memo(Modal);

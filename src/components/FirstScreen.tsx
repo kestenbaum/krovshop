@@ -22,4 +22,4 @@ const FirstScreen:FC = () => {
     );
 };
 
-export default FirstScreen;
+export default React.memo(FirstScreen);

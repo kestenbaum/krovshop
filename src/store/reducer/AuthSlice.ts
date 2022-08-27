@@ -1,15 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-interface IAuthSlice {
-    id: number,
-    email: string,
-    password: string,
-    admin: boolean,
-    name: string,
-    surname: string,
-    number: string
-}
-
+/*---- данные с зарегистрироваными юзерами -----*/
 const initialState = {
     dataUser: [
         {

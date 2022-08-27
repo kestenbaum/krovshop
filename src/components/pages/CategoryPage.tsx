@@ -14,6 +14,8 @@ const CategoryPage:FC = () => {
     /*---- state array elements----*/
     const [data, setData] = useState(initialState)
 
+    /*---- создание состояний для бесконечной ленты ----*/
+
     /*---- state search input ----*/
     const [stateSearch, setValueSearch] = useState<string>('')
 
@@ -43,7 +45,6 @@ const CategoryPage:FC = () => {
     const elementId = dataItemsKeys.indexOf(elementPageTitle)
 
     const pageId = dataItemsValue[elementId]
-
 
     /*---- change page items ----*/
     useEffect(() => {

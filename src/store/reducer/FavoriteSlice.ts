@@ -6,6 +6,7 @@ interface IInitialState {
     items: IFavoriteElement[]
 }
 
+/*---- данные с добавлеными в избраное ----*/
 export const initialState:IInitialState = {
     items: []
 }

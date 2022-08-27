@@ -29,4 +29,4 @@ const FormContact:FC = () => {
     );
 };
 
-export default FormContact;
+export default React.memo(FormContact);

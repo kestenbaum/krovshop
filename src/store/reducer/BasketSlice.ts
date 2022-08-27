@@ -5,6 +5,7 @@ interface IInitialState {
     basket: IBasket[]
 }
 
+/*---- данные с корзиной товаров ----*/
 const initialState:IInitialState = {
     basket: []
 }

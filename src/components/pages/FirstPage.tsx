@@ -13,4 +13,4 @@ const FirstPage:FC = () => {
     );
 };
 
-export default FirstPage;
+export default React.memo(FirstPage);

@@ -21,4 +21,4 @@ const MainButton:FC<IMainButton> = (props) => {
     );
 };
 
-export default MainButton;
+export default React.memo(MainButton);
