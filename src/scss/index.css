@@ -41,6 +41,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 .container {
   width: 100%;
   max-width: 1024px;
@@ -68,7 +72,6 @@
 
 .header-row {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -228,6 +231,10 @@
   .col-active {
     flex-direction: column;
   }
+  .wrapper-page {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 /*---- FirstScreen ----*/
 .first-screen {
@@ -367,10 +374,20 @@
     color: #fff;
   }
   .f-button {
-    font-size: 14px;
+    font-size: 11px;
   }
   .f-input {
     font-size: 14px;
+  }
+  .header-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .favorite-item {
+    flex-direction: column;
+  }
+  .title-page {
+    font-size: 15px;
   }
 }
 /*---- Category ----*/
@@ -442,6 +459,12 @@
   font-weight: 500;
   font-size: 13px;
   line-height: 104.51%;
+}
+
+.itemInfo-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /*---- MediaCategory ----*/
@@ -552,9 +575,11 @@
 
 .item-option {
   display: flex;
+  flex-direction: column;
   width: 100%;
   padding: 20px;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .item-price {
@@ -568,10 +593,13 @@
 .block-option {
   display: flex;
   gap: 10px;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .item-buy {
   display: flex;
+  justify-content: center;
   padding-bottom: 20px;
 }
 
@@ -733,6 +761,18 @@
   padding: 5px 15px;
   border: 2px solid #7A004F;
   border-radius: 15px;
+}
+
+/*---- media ----*/
+@media all and (max-width: 620px) {
+  .profile-wrapper {
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .form-login {
+    width: 90%;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

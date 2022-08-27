@@ -52,42 +52,43 @@ const Item:FC<IItem> = ({props}) => {
 
     return (
         <div className='item'>
-            {/*---- item info ----*/}
-            <div className="item-info">
-                <div className="item-article">Артикул: {props.article}</div>
-                <div className="item-availability">
-                    {props.availability ? 'В наличии' : 'Под заказ'}
-                </div>
-            </div>
 
-            {/*---- item img ----*/}
-            <img src={material} alt={props.img} className='item-img'/>
+           <div className="itemInfo-block">
+               <div className="item-info">
+                   <div className="item-article">Артикул: {props.article}</div>
+                   <div className="item-availability">
+                       {props.availability ? 'В наличии' : 'Под заказ'}
+                   </div>
+               </div>
 
-            {/*---- title item ----*/}
-            <div className="title-block">
-                <h3>{props.title}</h3>
-            </div>
 
-            {/*---- block price ----*/}
+               <img src={material} alt={props.img} className='item-img'/>
+
+
+               <div className="title-block">
+                   <h3>{props.title}</h3>
+               </div>
+
+           </div>
+
             <div className="item-option">
-                <span className="item-price">{props.price} руб / м2</span>
                 <div className="block-option">
-                    {/*---- btn to favorites ----*/}
+                    <span className="item-price">{props.price} руб / м2</span>
                     <button
-                       className='icon-favorite'
-                       onClick={addToFavorites}
+                        className='icon-favorite'
+                        onClick={addToFavorites}
                     >
                         <img src={disabled? IFavoritesActive : IFavorites} alt="favorites" className='favorite-img'/>
                     </button>
 
                 </div>
+
+                <div className="item-buy">
+                    <Counter count={counter} onChangeCount={setCounter}/>
+                    <MainButton onClick={addToBasket}>Купить</MainButton>
+                </div>
             </div>
 
-            {/*---- item counter ----*/}
-            <div className="item-buy">
-                <Counter count={counter} onChangeCount={setCounter}/>
-                <MainButton onClick={addToBasket}>Купить</MainButton>
-            </div>
         </div>
     );
 };
