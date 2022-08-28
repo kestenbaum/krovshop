@@ -44,17 +44,17 @@ const ProfileForm :FC<IProfileForm> = ({modal, setModal}) => {
                 className='profile-input'
             />
             <input
-                value={state.phone}
+                value={state.number}
                 type='text'
                 placeholder='Введите новый телефон'
-                onChange = {e => setState({...state, phone: e.target.value})}
+                onChange = {e => setState({...state, number: e.target.value})}
                 className='profile-input'
             />
             <input
-                value={state.mail}
+                value={state.email}
                 type='text'
                 placeholder='Введите новую почту'
-                onChange = {e => setState({...state, mail: e.target.value})}
+                onChange = {e => setState({...state, email: e.target.value})}
                 className='profile-input'
             />
             <MainButton
