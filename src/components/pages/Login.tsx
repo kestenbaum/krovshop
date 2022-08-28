@@ -3,8 +3,13 @@ import MainButton from "../UI/MainButton/MainButton";
 import {useDispatch} from "react-redux";
 import {useAppSelector} from "../../hooks/redux";
 import {AuthSlice} from "../../store/reducer/AuthSlice";
+import AddModal from "../UI/AddModal/AddModal";
+import Modal from "../UI/Modal/Modal";
 
 const Login: FC = () => {
+
+    const [modal, setModal] = useState<boolean>(false)
+
     /*---- Хук диспатч, все знаем для чего он :)))) ----*/
     const dispatch = useDispatch()
 
@@ -71,12 +76,23 @@ const Login: FC = () => {
         const result = dataUser.find(element =>
             element.email === data.email && element.password === data.password)
 
-        dispatch(AuthSlice.actions.handlerAuth(true))
-        localStorage.setItem('user', JSON.stringify(result))
+       if ( result) {
+           dispatch(AuthSlice.actions.handlerAuth(true))
+           localStorage.setItem('user', JSON.stringify(result))
+       } else {
+           setModal(true)
+           localStorage.clear()
+       }
     }
 
     return (
         <div className='login'>
+            <Modal
+                visible={modal}
+                setVisible={setModal}
+            >
+                <div>Введен не верный <span style={{color: '#e2269e'}}>логин</span> либо <span style={{color: '#e2269e'}}>пароль</span>!</div>
+            </Modal>
             <div className="container">
                 <div className="login-wrapper">
                     <form className="form-login">

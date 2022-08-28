@@ -19,11 +19,9 @@ const AddModal:FC<IAddModal> = ({visible, setVisible, children}) => {
     return (
         <div
             className={rootClasses.join(' ')}
-            onClick = {() => setVisible(false)}
         >
             <div
                 className={style.modalWrapper}
-                onClick={e => e.stopPropagation()}
             >
                 {children}
             </div>
