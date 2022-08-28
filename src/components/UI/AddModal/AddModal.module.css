@@ -1,19 +1,24 @@
-.modal{
+.addModal{
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 92%;
+    left: -53%;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: transparent;
     display: none;
+    width: 500px;
+    transition-duration: .3s;
 }
 .modalWrapper{
     padding: 25px;
-    background: #fff;
+    background:#131313;
     width: 80%;
+    color: #fff;
 }
 .active{
     display: flex;
     justify-content: center;
     align-items: center;
+    left: -6%;
+    transition-duration: .3s;
 }

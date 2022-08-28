@@ -8,6 +8,7 @@ import {IMetal} from "../../models/Items";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {BasketSlice} from "../../store/reducer/BasketSlice";
 import {FavoriteSlice} from "../../store/reducer/FavoriteSlice";
+import AddModal from "../UI/AddModal/AddModal";
 
 
 interface IItem {
@@ -15,6 +16,10 @@ interface IItem {
 }
 
 const Item:FC<IItem> = ({props}) => {
+
+    /*---- состояние модальных окн при добавление элементов  ----*/
+    const [modalBasket, setModalBasket] = useState<boolean>(false)
+    const [modalFavorites, setModalFavorites] = useState<boolean>(false)
 
     /*---- disabled ----*/
     const [disabled, setDisabled] = useState<boolean>(false)
@@ -37,6 +42,7 @@ const Item:FC<IItem> = ({props}) => {
         }
         dispatch(BasketSlice.actions.addToBasket(addToItemBasket))
         setCounter(1)
+        setModalBasket(true)
     }, [counter])
 
 
@@ -47,6 +53,7 @@ const Item:FC<IItem> = ({props}) => {
             disabled: disabled
         }
         dispatch(FavoriteSlice.actions.addToFavorite(addToItemFavorite))
+        setModalFavorites(true)
     }, [dataFavorites])
 
 
@@ -82,6 +89,16 @@ const Item:FC<IItem> = ({props}) => {
                     </button>
 
                 </div>
+
+                <AddModal visible={modalBasket} setVisible={setModalBasket}
+                >
+                    <div>Добавленно в <span style={{color: '#e2269e'}}>Корзину</span></div>
+                </AddModal>
+
+                <AddModal visible={modalFavorites} setVisible={setModalFavorites}
+                >
+                    <div>Добавленно в <span style={{color: '#e2269e'}}>Избраное</span></div>
+                </AddModal>
 
                 <div className="item-buy">
                     <Counter count={counter} onChangeCount={setCounter}/>
