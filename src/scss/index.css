@@ -773,6 +773,9 @@ a {
   .form-login {
     width: 90%;
   }
+  .about-description {
+    flex-direction: column;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

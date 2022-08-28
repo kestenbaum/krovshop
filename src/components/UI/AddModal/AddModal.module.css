@@ -1,8 +1,6 @@
 .addModal{
     position: fixed;
-    top: 92%;
-    left: -53%;
-    right: 0;
+    left: 0;
     bottom: 0;
     background: transparent;
     display: none;
@@ -17,8 +15,6 @@
 }
 .active{
     display: flex;
-    justify-content: center;
     align-items: center;
-    left: -6%;
     transition-duration: .3s;
 }
