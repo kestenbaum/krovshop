@@ -1,11 +1,11 @@
 import React, {FC, useEffect, useMemo, useState} from 'react';
 import {NavLink, useParams} from "react-router-dom";
-import Item from "../category/Item";
-import {useAppSelector} from "../../hooks/redux";
-import Search from "../UI/Search/Search";
+import Item from "../components/category/Item";
+import {useAppSelector} from "../hooks/redux";
+import Search from "../components/UI/Search/Search";
 
 
-const CategoryPage:FC = () => {
+export const CategoryPage:FC = () => {
 
     /*---- data ----*/
     const dataItems = useAppSelector(state => state.MetalTileSliceReducer)
@@ -114,5 +114,3 @@ const CategoryPage:FC = () => {
         </div>
     );
 };
-
-export default React.memo(CategoryPage);

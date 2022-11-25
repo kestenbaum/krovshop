@@ -1,9 +1,9 @@
 import React, {FC} from 'react';
-import AboutImg from '../../assets/img/about.png'
+import AboutImg from '../assets/img/about.png'
 import {NavLink} from "react-router-dom";
-import MainButton from "../UI/MainButton/MainButton";
+import MainButton from "../components/UI/MainButton/MainButton";
 
-const AboutPage:FC = () => {
+export const AboutPage:FC = () => {
     return (
         <div className='about-page'>
             <div className="container">
@@ -39,5 +39,3 @@ const AboutPage:FC = () => {
         </div>
     );
 };
-
-export default React.memo(AboutPage);

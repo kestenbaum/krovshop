@@ -1,17 +1,24 @@
 import React from "react";
-import FirstPage from "../components/pages/FirstPage";
-import CategoryPage from "../components/pages/CategoryPage";
-import ProfilePage from "../components/pages/ProfilePage/ProfilePage";
-import AboutPage from "../components/pages/AboutPage";
-import Login from "../components/pages/Login";
+
+import {
+    FirstPage,
+    CategoryPage,
+    ProfilePage,
+    Login,
+    AboutPage
+} from "../pages";
 
 export interface AppRouter {
     path: string;
     component: React.ComponentType | any;
+<<<<<<< HEAD
     exact?: boolean;
+=======
+    key?: string;
+>>>>>>> main
 }
 
-export enum RouterName {
+export enum RouterNames {
     LOGIN = '/login',
     ABOUT = '/about',
     PROFILE = '/profile',
@@ -20,12 +27,12 @@ export enum RouterName {
 }
 
 export const PrivateRouter: AppRouter[] = [
-    {path: RouterName.FIRST_PAGE, exact: true, component: FirstPage},
-    {path: RouterName.CATEGORY_PAGE, exact: true, component: CategoryPage},
-    {path: RouterName.ABOUT, exact: true, component: AboutPage},
-    {path: RouterName.PROFILE, exact: true, component: ProfilePage},
+    {path: RouterNames.FIRST_PAGE, component: FirstPage},
+    {path: RouterNames.CATEGORY_PAGE, component: CategoryPage},
+    {path: RouterNames.ABOUT, component: AboutPage},
+    {path: RouterNames.PROFILE, component: ProfilePage},
 ]
 
 export const PublicRouter: AppRouter[] = [
-    {path: RouterName.LOGIN, exact: true, component: Login}
+    {path: RouterNames.LOGIN, component: Login}
 ]
