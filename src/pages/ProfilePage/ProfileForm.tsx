@@ -1,5 +1,5 @@
 import React, {FC, useState} from 'react';
-import MainButton from "../../UI/MainButton/MainButton";
+import MainButton from "../../components/UI/MainButton/MainButton";
 
 interface IProfileForm {
     modal: boolean

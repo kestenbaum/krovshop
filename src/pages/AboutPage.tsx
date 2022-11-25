@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
-import AboutImg from '../../assets/img/about.png'
+import AboutImg from '../assets/img/about.png'
 import {NavLink} from "react-router-dom";
-import MainButton from "../UI/MainButton/MainButton";
+import MainButton from "../components/UI/MainButton/MainButton";
 
 export const AboutPage:FC = () => {
     return (

@@ -1,10 +1,10 @@
 import React, {FC, useState} from 'react';
-import MainButton from "../UI/MainButton/MainButton";
+import MainButton from "../components/UI/MainButton/MainButton";
 import {useDispatch} from "react-redux";
-import {useAppSelector} from "../../hooks/redux";
-import {AuthSlice} from "../../store/reducer/AuthSlice";
-import AddModal from "../UI/AddModal/AddModal";
-import Modal from "../UI/Modal/Modal";
+import {useAppSelector} from "../hooks/redux";
+import {AuthSlice} from "../store/reducer/AuthSlice";
+import AddModal from "../components/UI/AddModal/AddModal";
+import Modal from "../components/UI/Modal/Modal";
 
 export const Login: FC = () => {
 

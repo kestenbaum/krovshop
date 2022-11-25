@@ -1,7 +1,7 @@
 import React, {FC, useState} from 'react';
-import Avatar from "../../../assets/img/avatar.jpg";
-import MainButton from "../../UI/MainButton/MainButton";
-import Modal from "../../UI/Modal/Modal";
+import Avatar from "../../assets/img/avatar.jpg";
+import MainButton from "../../components/UI/MainButton/MainButton";
+import Modal from "../../components/UI/Modal/Modal";
 import ProfileForm from "./ProfileForm";
 
 const ProfileInfo :FC= () => {
