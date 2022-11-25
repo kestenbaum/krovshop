@@ -1,6 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-/*---- данные с зарегистрироваными юзерами -----*/
 const initialState = {
     dataUser: [
         {
