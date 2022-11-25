@@ -10,9 +10,7 @@ import {
 
 export interface AppRouter {
     path: string;
-    //component: React.ComponentType<RouteComponentProps<any>> | React.ComponentType<any> | undefined;
-    //component: React.ComponentType | React.ReactNode | undefined;
-    component: any
+    component: React.ComponentType | any;
     key?: string;
 }
 
