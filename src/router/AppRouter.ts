@@ -7,7 +7,7 @@ import Login from "../components/pages/Login";
 
 export interface AppRouter {
     path: string;
-    component: React.ComponentType;
+    component: React.ComponentType | any;
     exact?: boolean;
 }
 
