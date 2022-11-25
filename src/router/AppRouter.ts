@@ -11,13 +11,21 @@ export interface AppRouter {
     exact?: boolean;
 }
 
+export enum RouterName {
+    LOGIN = '/login',
+    ABOUT = '/about',
+    PROFILE = '/profile',
+    FIRST_PAGE = '/',
+    CATEGORY_PAGE = '/page/:id'
+}
+
 export const PrivateRouter: AppRouter[] = [
-    {path: '/', exact: true, component: FirstPage},
-    {path: '/page/:id', exact: true, component: CategoryPage},
-    {path: '/about', exact: true, component: AboutPage},
-    {path: '/profile', exact: true, component: ProfilePage},
+    {path: RouterName.FIRST_PAGE, exact: true, component: FirstPage},
+    {path: RouterName.CATEGORY_PAGE, exact: true, component: CategoryPage},
+    {path: RouterName.ABOUT, exact: true, component: AboutPage},
+    {path: RouterName.PROFILE, exact: true, component: ProfilePage},
 ]
 
 export const PublicRouter: AppRouter[] = [
-    {path: '/login', exact: true, component: Login}
+    {path: RouterName.LOGIN, exact: true, component: Login}
 ]
