@@ -6,8 +6,6 @@ import Login from "./components/pages/Login";
 import {useAppSelector} from "./hooks/redux";
 
 const App = () => {
-
-    /*---- Получение данных зарегистрирован ли пользователь ----*/
     const auth = useAppSelector(state => state.AuthSliceReducer.auth)
 
     return (

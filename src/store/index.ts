@@ -4,7 +4,6 @@ import {BasketSliceReducer} from "./reducer/BasketSlice";
 import {FavoriteSliceReducer} from "./reducer/FavoriteSlice";
 import {AuthSliceReducer} from "./reducer/AuthSlice";
 
-/*---- рндюсеры ----*/
 export const store = combineReducers({
     MetalTileSliceReducer,
     BasketSliceReducer,

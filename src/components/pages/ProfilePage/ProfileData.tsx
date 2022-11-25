@@ -4,11 +4,9 @@ import MainButton from "../../UI/MainButton/MainButton";
 
 const ProfileData :FC = () => {
 
-    /*---- Получение юзера ----*/
     const user = localStorage.getItem('user')
     const getUser = user && JSON.parse(user)
 
-    /*---- Функция выхода с профиля ----*/
     const deleteLocalStorage = () => {
         localStorage.clear()
     }
