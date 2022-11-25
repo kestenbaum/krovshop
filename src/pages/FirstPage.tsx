@@ -3,7 +3,7 @@ import FirstScreen from "../FirstScreen";
 import Categories from "../category/Categories";
 import FormContact from "../FormContact";
 
-const FirstPage:FC = () => {
+export const FirstPage:FC = () => {
     return (
         <div>
             <FirstScreen/>
@@ -12,5 +12,3 @@ const FirstPage:FC = () => {
         </div>
     );
 };
-
-export default React.memo(FirstPage);

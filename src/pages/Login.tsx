@@ -6,7 +6,7 @@ import {AuthSlice} from "../../store/reducer/AuthSlice";
 import AddModal from "../UI/AddModal/AddModal";
 import Modal from "../UI/Modal/Modal";
 
-const Login: FC = () => {
+export const Login: FC = () => {
 
     const [modal, setModal] = useState<boolean>(false)
 
@@ -136,5 +136,3 @@ const Login: FC = () => {
         </div>
     );
 };
-
-export default React.memo(Login);

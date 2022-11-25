@@ -5,7 +5,7 @@ import {useAppSelector} from "../../hooks/redux";
 import Search from "../UI/Search/Search";
 
 
-const CategoryPage:FC = () => {
+export const CategoryPage:FC = () => {
 
     /*---- data ----*/
     const dataItems = useAppSelector(state => state.MetalTileSliceReducer)
@@ -114,5 +114,3 @@ const CategoryPage:FC = () => {
         </div>
     );
 };
-
-export default React.memo(CategoryPage);
