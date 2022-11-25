@@ -11,11 +11,8 @@ import {
 export interface AppRouter {
     path: string;
     component: React.ComponentType | any;
-<<<<<<< HEAD
     exact?: boolean;
-=======
     key?: string;
->>>>>>> main
 }
 
 export enum RouterNames {
